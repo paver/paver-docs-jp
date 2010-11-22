@@ -1,0 +1,3 @@
+[submodule "paver"]
+	path = paver
+	url = git://github.com/paver/paver
