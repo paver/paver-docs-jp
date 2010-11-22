@@ -7,7 +7,7 @@
 Paver: ソフトウェアプロジェクトのための簡易スクリプティング
 ===========================================================
 
-.. image:: ../_static/paver_banner.jpg
+.. image:: _static/paver_banner.jpg
     :height: 126
     :width: 240
 
