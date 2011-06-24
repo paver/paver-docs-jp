@@ -16,11 +16,10 @@ Paver: ソフトウェアプロジェクトのための簡易スクリプティ�
     lines of Make or Rake. It is not designed to handle the dependency
     tracking requirements of, for example, a C program. It *is* designed
     to help out with all of your other repetitive tasks (run documentation
-    generators, moving files about, downloading things), all with the
+    generators, moving files around, downloading things), all with the
     convenience of Python's syntax and massive library of code.
 
-Paver は Make や Rake によく似た Python ベースのソフトウェアプロジェクトのスクリプティングツールです。例えば C 言語のプログラムのように必要な依存関係を追跡して扱うようには設計されていません。Python 構文と豊富なライブラリコードの利便性により、雑多な全ての繰り返しタスク(ドキュメントを生成する、関連ファイルを移動する、ダウンロードする)に対して
-補助するように *設計されています* 。
+Paver は Make や Rake によく似た Python ベースのソフトウェアプロジェクトのスクリプティングツールです。例えば、C 言語のプログラムのように必要な依存関係を追跡して扱うようには設計されていません。Python で書けることと豊富なライブラリの利便性により、雑多な全ての繰り返しタスク (ドキュメント生成、関連ファイルの移動、ファイル等のダウンロード) をこなすように *設計されています* 。
 
 ..
     If you're developing applications in Python, you get even more...
@@ -30,7 +29,7 @@ Paver は Make や Rake によく似た Python ベースのソフトウェアプ
     source distribution? With Paver, you can, trivially. Here's a complete
     pavement.py::
 
-もしあなたが Python でアプリケーションを開発しているなら、なおさら使用してみましょう。大半の Python のパブリックプロジェクトは再配布向けのソース tarball を作成するために distutils か setuptools を使用します(プライベートプロジェクトもこの利点を得ることができる！)。あなたはこれまでにソースディストリビューションを作成する前にドキュメントを生成したことがありますか？Paver を使えばまさにそれができます。次に完全な pavement.py があります。
+もし Python でアプリケーションを開発しているなら、これから使ってみると良いです。大半の Python の公開プロジェクトは、配布用のソースを tarball で作成するために distutils か setuptools を使います (非公開プロジェクトもこの利点を得られる！) 。これまで配布用のソースを作成する前に、ドキュメントを生成しようとしたことはありますか？Paver を使えば、まさにそういったことができます。pavement.py は次のように記述します。
 
 ::
 
@@ -59,7 +58,7 @@ Paver は Make や Rake によく似た Python ベースのソフトウェアプ
     (and, of course, you can tell Paver where your docs are stored,
     if they're not in the default location.)
 
-この pavement ファイルを使用して、ただ ``paver sdist`` を実行するだけでドキュメントがソースディストリビューションを作成する前に自動的にリビルドされます。そして、生成したドキュメントを他のディレクトリへ移動することも簡単です(もちろん Paver にそのドキュメントをデフォルトの場所以外にどこへ置くかを教えることができます)。
+この pavement.py ファイルを利用して、単に ``paver sdist`` を実行すると、配布用のソースを作成する前にドキュメントが自動的に再生成されます。それから、生成したドキュメントを別ディレクトリへ移動するのも簡単です (もちろん、デフォルトの場所以外の場合、Paver へどこに置くかを伝えられます) 。
 
 ..
     Features
@@ -89,22 +88,21 @@ Paver は Make や Rake によく似た Python ベースのソフトウェアプ
       even install Paver! (See the :ref:`Getting Started Guide <gettingstarted>` 
       for an example).
 
-* ビルドファイルは :ref:`ただの Python <justpython>` プログラムです
-* :ref:`1つの構文で1つのファイル <onefile>` , pavement.py はプロジェクトの管理方法を知っています
-* :ref:`File 操作 <pathmodule>` は Jason Orendorff が作成した path.py のビルトインを使用して信じられないぐらい簡単です
-* 5行でできることに必要なコードは？ :ref:`やはり5行だけです <fivelines>`
-* 必要に応じてカスタマイズできるように完全に :ref:`distutils と setuptools <setuptools>` を内包します
-* ドキュメントを生成するために :ref:`Sphinx <doctools>` をラップして、テストされたサンプルコードを組み込み易くするためのユーティリティを追加します
-* チェックアウトするコードと共に動作する :ref:`Subversion <svn>` をラップする
-
-* 仮想環境を構築して実行するブートストラップスクリプトの作成を許容する :ref:`virtualenv <virtualenv>` をラップする、これは影響範囲が制限された環境にパッケージをインストールするための素晴らしい方法です
-* これらのうち全てのライブラリを使用できますが :ref:`依存関係がありません <nodeps>`
-* Paver のインストールや関連内容をユーザが学習することなく簡単に setup.py から変換します！(サンプルは :ref:`スタートガイド <gettingstarted>` を参照)
+* ビルドファイルは :ref:`単なる Python <justpython>` プログラムです
+* :ref:`1つのファイル内に1つの構文で記述する <onefile>`  pavement.py は、プロジェクト管理の仕組みそのものです
+* :ref:`File 操作 <pathmodule>` は、Jason Orendorff が作ってくれた、組み込みの path.py により信じられないぐらい簡単です
+* 5行でできることに必要なコードは？ :ref:`やはり5行だけ <fivelines>` です
+* :ref:`distutils と setuptools <setuptools>` を内包し、必要に応じてその処理を変更できます
+* ドキュメント生成は内部的に :ref:`Sphinx <doctools>` を利用し、テスト済みのサンプルコードを組み込むのが簡単なユーティリティも追加します
+* :ref:`Subversion <svn>` を利用して、コードをチェックアウトします
+* :ref:`virtualenv <virtualenv>` を利用して、仮想環境の構築、ならびに実行するブートストラップスクリプトの作成します。これは隔離された環境にパッケージをインストールする優れた方法です
+* こういった全てのライブラリを利用できますが :ref:`依存関係はありません <nodeps>`
+* ユーザが Paver のインストールやその使い方を学ぶことなく、簡単に setup.py から移行します！(サンプルは :ref:`スタートガイド <gettingstarted>` を参照)
 
 ..
     See how it works! Check out the :ref:`Getting Started Guide <gettingstarted>`.
 
-Paver がどのように動作するかを見てください！ :ref:`スタートガイド <gettingstarted>` をチェックアウトしよう。
+Paver がどう動くのかを見てください！ :ref:`スタートガイド <gettingstarted>` をチェックアウトしよう。
 
 ..
     Paver was created by `Kevin Dangoor <http://blueskyonmars.com>`_ of `SitePen <http://sitepen.com>`_.
@@ -122,7 +120,7 @@ Paver は `SitePen <http://sitepen.com>`_ に所属する `Kevin Dangoor <http:/
     Paver has been in use in production settings since mid-2008, and significant 
     attention is paid to backwards compatibility since the release of 1.0.
 
-Paver は2008年中頃に本番環境で使用されています。そして1.0 リリースから後方互換性に大きな注意が払われています。
+Paver は2008年中頃から本番環境で使われています。そして 1.0 リリースから後方互換性にかなり注意を払っています。
 
 ..
     See the :ref:`changelog <changelog>` for more information about recent improvements.
@@ -139,7 +137,7 @@ Paver は2008年中頃に本番環境で使用されています。そして1.0 
 ..
     The easiest way to get Paver is if you have setuptools_ installed.
 
-setuptools_ をインストールしているなら Paver をインストールする最も簡単な方法です。
+Paver をインストールする最も簡単な方法は、 setuptools_ をインストールしておくことです。
 
 ``easy_install Paver``
 
@@ -147,7 +145,7 @@ setuptools_ をインストールしているなら Paver をインストール�
     Without setuptools, it's still pretty easy. Download the Paver .tgz file from 
     `Paver's Cheeseshop page`_, untar it and run:
 
-setuptools がなくても本当に簡単です。 `Paver の Cheeseshop ページ`_ から Paver の .tgz ファイルをダウンロードして解凍して次のように実行してください。
+とはいえ、setuptools がなくても本当に簡単です。 `Paver の Cheeseshop ページ`_ から Paver の .tgz ファイルをダウンロード、解凍して次のように実行してください。
 
 ``python setup.py install``
 
@@ -164,21 +162,23 @@ setuptools がなくても本当に簡単です。 `Paver の Cheeseshop ペー�
 ..
     You can get help from the `mailing list`_.
 
-困ったときは `メーリングリスト`_ で質問することができます。
+困ったときは `メーリングリスト`_ で質問してください。
 
 ..
-    If you'd like to help out with Paver, you can check the code out from Googlecode:
+    If you'd like to help out with Paver, you can check the code out from github:
 
-Paver を支援したいなら Googlecode からそのコードをチェックアウトすることができます。
+Paver を支援しようと考えているなら github からそのコードをチェックアウトできます。
 
-``svn checkout http://paver.googlecode.com/svn/trunk/ paver-read-only``
+``git clone https://github.com/paver/paver.git``
 
 ..
-    You can also take a look at `Paver's project page on Googlecode <http://code.google.com/p/paver/>`_.
+    Ideally, create a fork, fix an issue from `Paver's list of issues`_ (or create an issue
+    Yourself) and send a pull request.
 
-`Googlecode の Paver プロジェクト <http://code.google.com/p/paver/>`_ で見ることもできます。
+理想としては、リポジトリをフォークして `Paver の課題リスト`_ にある課題 (または自分で作成した課題) を修正して、pull リクエストを送ってください。
 
 .. _メーリングリスト: http://groups.google.com/group/paver
+.. _Paver の課題リスト: https://github.com/paver/paver/issues
 
 ..
     License
@@ -191,7 +191,7 @@ Paver を支援したいなら Googlecode からそのコードをチェック�
     Paver is licensed under a BSD license. See the LICENSE.txt file in the 
     distribution.
 
-Paver は BSD ライセンスを採用します。配布に関しては LICENSE.txt を参照してください。
+Paver は BSD ライセンスです。再配布に関しては LICENSE.txt を参照してください。
 
 ..
     Contents
